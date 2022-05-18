@@ -13,4 +13,7 @@
     <include file="lesson1/create.category.table.xml" relativeToChangelogFile="true"/>
     <include file="lesson1/create.product_category.table.xml" relativeToChangelogFile="true"/>
 
+    <include file="lesson2/category.add.service.info.columns.xml" relativeToChangelogFile="true"/>
+    <include file="lesson2/manufacturer.add.service.info.columns.xml" relativeToChangelogFile="true"/>
+
 </databaseChangeLog>
