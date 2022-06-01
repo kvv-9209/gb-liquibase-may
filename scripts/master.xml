@@ -18,5 +18,6 @@
 
     <include file="lesson6/create.user.role.auth.tables.xml" relativeToChangelogFile="true"/>
     <include file="lesson6/product_category.delete.unique.constraint.xml" relativeToChangelogFile="true"/>
+    <include file="lesson6/account_user.add.service.info.email.phone.status.columns.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

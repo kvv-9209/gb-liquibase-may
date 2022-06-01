@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+    http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd ">
+
+    <changeSet id="before_account_user_add_service_info_columns" author="kropotov.artem" context="postgresql"
+               labels="version, created_by, created_date, last_modified_by, last_modified_date,
+status, email, phone">
+        <tagDatabase tag="before_account_user_add_service_info_columns"/>
+    </changeSet>
+
+    <changeSet id="account_user_add_service_info_columns" author="kropotov.artem" context="postgresql"
+               labels="version, created_by, created_date, last_modified_by, last_modified_date,
+status, email, phone">
+        <addColumn tableName="ACCOUNT_USER">
+            <column name="email" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VERSION" type="INT" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="TIMESTAMP"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="TIMESTAMP"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
