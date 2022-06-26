@@ -24,6 +24,8 @@
     <include file="lesson10/create.order.table.xml" relativeToChangelogFile="true"/>
     <include file="lesson10/create.order_item.table.xml" relativeToChangelogFile="true"/>
 
+    <include file="lesson11/create.product_image.table.xml" relativeToChangelogFile="true"/>
+
 
 
 </databaseChangeLog>
