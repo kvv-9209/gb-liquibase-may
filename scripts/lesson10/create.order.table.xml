@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+    http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd ">
+
+
+    <changeSet id="before_create_table.SHOP_ORDER" author="kropotov">
+        <tagDatabase tag="before_create_shop_order_table"/>
+    </changeSet>
+
+    <changeSet id="create_table.SHOP_ORDER" author="kropotov">
+        <createTable tableName="SHOP_ORDER">
+            <column name="ID" type="BIGSERIAL">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="recipient_firstname" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recipient_lastname" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recipient_phone" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recipient_mail" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DELIVERY_DATE" type="DATE"/>
+            <column name="delivery_price" type="DECIMAL(10, 2))">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="delivery_address_id" type="BIGINT"/>
+            <column name="shop_address_id" type="BIGINT"/>
+
+            <column name="price" type="DECIMAL(10,2)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="VERSION" type="INT" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="varchar(255)"/>
+            <column name="CREATED_DATE" type="TIMESTAMP"/>
+            <column name="LAST_MODIFIED_BY" type="varchar(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="TIMESTAMP"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="SHOP_ORDER" baseColumnNames="USER_ID" constraintName="FK_SHOP_ORDER_ACCOUNT_USER"
+                                 referencedTableName="ACCOUNT_USER" referencedColumnNames="ID"/>
+
+        <addForeignKeyConstraint baseTableName="SHOP_ORDER" baseColumnNames="DELIVERY_ADDRESS_ID" constraintName="FK_SHOP_ORDER_ADDRESS"
+                                 referencedTableName="ADDRESS" referencedColumnNames="ID"/>
+
+    </changeSet>
+
+</databaseChangeLog>
